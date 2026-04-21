@@ -341,7 +341,7 @@ static void __exit monitor_exit(void)
     unsigned long flags;
 
     /* Stop timer first — no more callbacks after this returns */
-    del_timer_sync(&monitor_timer);
+    timer_delete_sync(&monitor_timer);
 
     /* Free every remaining list node */
     spin_lock_irqsave(&list_lock, flags);
